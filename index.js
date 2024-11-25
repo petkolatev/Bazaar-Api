@@ -6,7 +6,7 @@ import apiRouter from './router/index.js'
 
 
 try {
-    await mongoose.connect('mongodb://localhost:27017/tasks')
+    await mongoose.connect('mongodb://localhost:27017/books')
     console.log('its connect');
 } catch {
 
