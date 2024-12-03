@@ -1,24 +1,35 @@
-import { Schema, model,Types } from "mongoose";
+import { Schema, model, Types } from "mongoose";
+import User from "./User.js";
 
 const bookSchema = new Schema({
-    id:{
-        type:Number
-    },
-    title:{
-        type:String,
+    title: {
+        type: String,
     },
     author: {
-        type:String,
+        type: String,
     },
     genre: {
-        type:String,
+        type: String,
     },
     year: {
-        type:Number,
+        type: Number,
     },
-    description:{
-        type:String,
-    }
+    description: {
+        type: String,
+    },
+    image: {
+        type: String,
+    },
+    owner: {
+        type: Types.ObjectId,
+        ref: 'User'
+    },
+    // likes: [{
+    //     type: Types.ObjectId,
+    //     ref: 'User',
+    // }]
+
+
 });
 
 const Book = model('Book', bookSchema)
