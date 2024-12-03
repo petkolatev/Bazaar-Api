@@ -11,6 +11,7 @@ const routes = Router();
 routes.post('/register', authController)
 routes.post('/login', authController)
 routes.get('/logout', authController)
+routes.get('/profile',authController)
 
 routes.get('/books', bookService.getBooks)
 routes.get('/books/:bookId', bookService.getOneBooks)

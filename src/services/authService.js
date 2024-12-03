@@ -26,9 +26,10 @@ const authService = {
         if (!isValid) {
             throw new Error('Invalid User or Password!')
         }
+       
+        const token = await this.generateToken(user)
 
-        const token =await  this.generateToken(user)
-        return token
+        return {token,user}
     },
     async generateToken(user) {
         const payload = {
@@ -37,7 +38,7 @@ const authService = {
             username: user.username
         }
         const token = await jwt.sign(payload, '3', { expiresIn: '2h' })
-       
+
         return token
     }
 

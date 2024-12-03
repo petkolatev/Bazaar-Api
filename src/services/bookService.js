@@ -16,10 +16,9 @@ const bookService = {
     },
     async createBook(req, res) {
         const { title, author, genre, year, description, image } = req.body
-        console.log(title);
-        const owner = req.userId
-        return await Book.create({title, author, genre, year, description, image}, owner)
-        .then(book => res.json(book))
+
+        return await Book.create({ title, author, genre, year, description, image })
+            .then(book => res.json(book))
     }
 
 }
