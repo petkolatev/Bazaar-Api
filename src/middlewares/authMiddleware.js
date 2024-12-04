@@ -1,6 +1,7 @@
 import jwt from "../lib/jwt.js"
 
 export const authMiddleware = async (req, res, next) => {
+    console.log(req);
     const token = req.cookies['auth']
 
     if (!token) {
@@ -12,7 +13,7 @@ export const authMiddleware = async (req, res, next) => {
 
         req.user = decodedToken
         req.isAuthenticated = true
-        
+
         res.locals.user = decodedToken
         res.locals.isAuthenticated = true
 
@@ -25,7 +26,7 @@ export const authMiddleware = async (req, res, next) => {
 }
 
 export const isAuth = (req, res, next) => {
-    
+
     if (!req.user) {
         return res.redirect('/auth/login')
     }
@@ -33,7 +34,7 @@ export const isAuth = (req, res, next) => {
 }
 
 export const isGuest = (req, res, next) => {
-    
+
     if (req.user) {
         return res.redirect('/404')
     }

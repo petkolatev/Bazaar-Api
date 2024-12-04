@@ -2,11 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors'
 import config from './services/dbConfig.js';
-
-import 'dotenv/config'
-
-import routes from './routes.js';
 import { authMiddleware } from './middlewares/authMiddleware.js';
+import 'dotenv/config'
+import routes from './routes.js';
 
 const app = express();
 
@@ -21,7 +19,7 @@ app.use(cors({
     credentials: true
 }));
 app.use(express.json())
-app.use(express.urlencoded({ extended: true })) //we can read from body
+app.use(express.urlencoded({ extended: false })) //we can read from body
 // app.use(authMiddleware)
 app.use('/api', routes)
 
