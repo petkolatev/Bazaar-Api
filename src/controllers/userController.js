@@ -21,7 +21,7 @@ userController.post('/login', async (req, res) => {
 
     try {
         const token = await authService.login(email, password)
-      
+
         res.cookie('auth', token, { httpOnly: true }).json(token)
     } catch (err) {
         const error = getErrorMessage(err)

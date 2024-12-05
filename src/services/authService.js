@@ -23,10 +23,10 @@ const authService = {
         if (!isValid) {
             throw new Error('Invalid User or Password!')
         }
-       
+
         const token = await this.generateToken(user)
 
-        return {token,user}
+        return { token, user }
     },
     async generateToken(user) {
         const payload = {
