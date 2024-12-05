@@ -3,15 +3,14 @@ import User from '../models/User.js'
 import jwt from '../lib/jwt.js'
 
 const authService = {
-    async register(req, res, next) {
-        const { username, email, password, rePassword } = req.body
-
-        const user = await User.create({
+    async register(username, email, password, rePassword) {
+       
+        return  await User.create({
             username,
             email,
             password,
         })
-            .then(user => res.json(user))
+       
 
     },
     async login(email, password) {
@@ -26,10 +25,10 @@ const authService = {
         if (!isValid) {
             throw new Error('Invalid User or Password!')
         }
-       
+
         const token = await this.generateToken(user)
 
-        return {token,user}
+        return { token, user }
     },
     async generateToken(user) {
         const payload = {
