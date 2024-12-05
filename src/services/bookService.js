@@ -19,8 +19,14 @@ const bookService = {
 
         return await Book.create({ title, author, genre, year, description, image, owner })
             .then(book => res.json(book))
-    }
+    },
+    async like(req, res) {
+        const { id, user } = req.body
+        console.log(id,user);
 
+        return await Book.findByIdAndUpdate(id, { $push: { likes: user } })
+            .then(book => res.json(book))
+    }
 }
 
 

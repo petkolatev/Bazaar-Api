@@ -15,6 +15,7 @@ routes.get('/profile',authController)
 
 routes.get('/books', bookService.getBooks)
 routes.get('/books/:bookId', bookService.getOneBooks)
+routes.put('/books/:bookId', bookService.like)
 routes.post('/books', bookService.createBook)
 
 

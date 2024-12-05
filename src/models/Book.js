@@ -24,10 +24,10 @@ const bookSchema = new Schema({
         type: Types.ObjectId,
         ref: 'User'
     },
-    // likes: [{
-    //     type: Types.ObjectId,
-    //     ref: 'User',
-    // }]
+    likes: [{
+        type: Types.ObjectId,
+        ref: 'User',
+    }]
 
 
 });
