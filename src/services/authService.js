@@ -3,16 +3,13 @@ import User from '../models/User.js'
 import jwt from '../lib/jwt.js'
 
 const authService = {
-    async register(req, res, next) {
-        const { username, email, password, rePassword } = req.body
-
-        const user = await User.create({
+    async register(username, email, password, next) {
+       
+        return await User.create({
             username,
             email,
             password,
         })
-            .then(user => res.json(user))
-
     },
     async login(email, password) {
         const user = await User.findOne({ email })

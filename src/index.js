@@ -1,26 +1,24 @@
-import express from 'express';
-import mongoose from 'mongoose';
+
+import express from 'express'
+import mongoose from 'mongoose'
 import cors from 'cors'
-import config from './services/dbConfig.js';
-import { authMiddleware } from './middlewares/authMiddleware.js';
-import 'dotenv/config'
-import routes from './routes.js';
+import { logMiddleware } from './middlewares/logMiddleware.js'
+import routes from './routes.js'
+import config from './services/dbConfig.js'
 
-const app = express();
-
-// setup DB
-const url = 'mongodb://localhost:27017/books';
-mongoose.connect(url)  // Change dbname with actual project name
+mongoose.connect(config.dbURL)
     .then(() => console.log('DB connected!'))
     .catch((err) => console.log(`DB fail to connected: ${err}`))
 
+const app = express()
 app.use(cors({
     origin: config.origin,
     credentials: true
 }));
 app.use(express.json())
-app.use(express.urlencoded({ extended: false })) //we can read from body
-// app.use(authMiddleware)
+app.use(express.urlencoded({ extended: false }));
+app.use(logMiddleware)
 app.use('/api', routes)
 
-app.listen(3000, () => console.log('Server is running on http:/localhost:3000 '));
+
+app.listen(config.port, () => console.log(`Server is running on http:/localhost:${config.port}`))

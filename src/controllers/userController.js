@@ -1,24 +1,22 @@
-import { Router } from "express";
-import authService from "../services/authService.js";
-import { getErrorMessage } from "../utils/errorUtils.js";
-import { isAuth, isGuest } from "../middlewares/authMiddleware.js"
+import { Router } from "express"
+import authService from "../services/authService.js"
+import { getErrorMessage } from "../utils/errorUtils.js"
 
-const authController = Router();
-authController.post('/register', async (req, res) => {
+const userController = Router()
+userController.post('/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body
 
     try {
         const token = await authService.register(username, email, password, rePassword)
-
         res.cookie('auth', token, { httpOnly: true }).json(token)
 
     } catch (err) {
         const error = getErrorMessage(err)
-        console.log(error);
+        res.status(500).send({ error })
     }
 })
 
-authController.post('/login', async (req, res) => {
+userController.post('/login', async (req, res) => {
     const { email, password } = req.body
 
     try {
@@ -26,20 +24,18 @@ authController.post('/login', async (req, res) => {
       
         res.cookie('auth', token, { httpOnly: true }).json(token)
     } catch (err) {
-
         const error = getErrorMessage(err)
-
-        res.json(error)
+        res.status(500).send({ error })
     }
 
 })
 
-authController.get('/logout', (req, res) => {
+userController.get('/logout', (req, res) => {
     res.clearCookie('auth')
 
-    res.send({ message: 'Loged out' })
+    res.send({ message: 'Logged out' })
 })
 
 
-export default authController
+export default userController
 

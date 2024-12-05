@@ -1,22 +1,17 @@
-import { Router } from "express";
-import bookService from "./services/bookService.js";
-import authServise from './services/authService.js'
-import authController from "./controllers/authCotroller.js";
+import { Router } from "express"
+import bookController from "./controllers/bookController.js"
+import userController from "./controllers/userController.js"
 
+const routes = Router()
 
+routes.post('/register', userController)
+routes.post('/login', userController)
+routes.get('/logout', userController)
+routes.get('/profile',userController)
 
-
-const routes = Router();
-
-routes.post('/register', authController)
-routes.post('/login', authController)
-routes.get('/logout', authController)
-routes.get('/profile',authController)
-
-routes.get('/books', bookService.getBooks)
-routes.get('/books/:bookId', bookService.getOneBooks)
-routes.put('/books/:bookId', bookService.like)
-routes.post('/books', bookService.createBook)
-
+routes.get('/book', bookController)
+routes.get('/book/:bookId', bookController)
+routes.put('/book/:bookId', bookController)
+routes.post('/book', bookController)
 
 export default routes
