@@ -13,9 +13,12 @@ const bookService = {
     async update(id, update,) {
         return Book.findByIdAndUpdate(id, { ...update}, {new: true})
     },
-    async remove(bookId) {
-     console.log(bookId);
-        return  await Book.findOneAndDelete({'_id':bookId})
+    async remove(req, res) {
+        const { bookId } = req.params
+        return  Book.findOneAndDelete({'_id':bookId})
+    },
+    async search(searchString) {
+        return Book.find({ "title" : { $regex: new RegExp(`.*${searchString}.*`, 'i')  }})
     }
 }
 

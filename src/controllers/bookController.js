@@ -5,9 +5,13 @@ import { getErrorMessage } from "../utils/errorUtils.js"
 const bookController = Router();
 bookController.get('/book', async (req, res) => {
     try {
-        const books = await bookService.get()
+        const { title } = req.query
+        let books = []
+        if (title)
+            books = await bookService.search(title)
+        else
+            books = await bookService.get()
         res.json(books)
-
     } catch (err) {
         const error = getErrorMessage(err)
         res.status(500).send({ error })
@@ -57,7 +61,6 @@ bookController.delete('/book/:bookId', async (req, res) => {
         res.status(500).send({ error })
     }
 })
-
 
 export default bookController
 

@@ -3,7 +3,18 @@ import userService from "../services/userService.js"
 import { getErrorMessage } from "../utils/errorUtils.js"
 
 const userController = Router()
-userController.post('/register', async (req, res) => {
+userController.put('user', async (req, res) => {
+    try {
+        const user = await userService.update(req.params.userId, { ...req.body })
+        res.json(user)
+
+    } catch (err) {
+        const error = getErrorMessage(err)
+        res.status(500).send({ error })
+    }
+})
+
+userController.post('user/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body
 
     try {
@@ -16,12 +27,12 @@ userController.post('/register', async (req, res) => {
     }
 })
 
-userController.post('/login', async (req, res) => {
+userController.post('user/login', async (req, res) => {
     const { email, password } = req.body
 
     try {
         const token = await userService.login(email, password)
-    
+
         res.cookie('auth', token, { httpOnly: true }).json(token)
     } catch (err) {
         const error = getErrorMessage(err)
@@ -30,12 +41,11 @@ userController.post('/login', async (req, res) => {
 
 })
 
-userController.get('/logout', (req, res) => {
+userController.get('user/logout', (req, res) => {
     res.clearCookie('auth')
 
     res.send({ message: 'Logged out' })
 })
-
 
 export default userController
 

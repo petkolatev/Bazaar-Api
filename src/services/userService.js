@@ -11,6 +11,11 @@ const authService = {
             password,
         })
     },
+    
+    async update(id, update,) {
+        return User.findByIdAndUpdate(id, { ...update}, {new: true})
+    },
+
     async login(email, password) {
         const user = await User.findOne({ email })
 
@@ -28,6 +33,7 @@ const authService = {
 
         return { token, user }
     },
+
     async generateToken(user) {
         const payload = {
             _id: user._id,
