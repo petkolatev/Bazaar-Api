@@ -14,7 +14,7 @@ userController.put('user', async (req, res) => {
     }
 })
 
-userController.post('user/register', async (req, res) => {
+userController.post('/register', async (req, res) => {
     const { username, email, password, rePassword } = req.body
 
     try {
@@ -27,7 +27,7 @@ userController.post('user/register', async (req, res) => {
     }
 })
 
-userController.post('user/login', async (req, res) => {
+userController.post('/login', async (req, res) => {
     const { email, password } = req.body
 
     try {
@@ -41,7 +41,7 @@ userController.post('user/login', async (req, res) => {
 
 })
 
-userController.get('user/logout', (req, res) => {
+userController.get('/logout', (req, res) => {
     res.clearCookie('auth')
 
     res.send({ message: 'Logged out' })
