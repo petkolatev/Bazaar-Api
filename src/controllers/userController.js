@@ -3,7 +3,7 @@ import userService from "../services/userService.js"
 import { getErrorMessage } from "../utils/errorUtils.js"
 
 const userController = Router()
-userController.put('user', async (req, res) => {
+userController.put('/profile/:userId', async (req, res) => {
     try {
         const user = await userService.update(req.params.userId, { ...req.body })
         res.json(user)
