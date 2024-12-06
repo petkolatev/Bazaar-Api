@@ -13,9 +13,9 @@ const bookService = {
     async update(id, update,) {
         return Book.findByIdAndUpdate(id, { ...update}, {new: true})
     },
-    async remove(req, res) {
-        const { bookId } = req.params
-        return  Book.findOneAndDelete({'_id':bookId}).then(res.json())
+    async remove(bookId) {
+     console.log(bookId);
+        return  await Book.findOneAndDelete({'_id':bookId})
     }
 }
 
