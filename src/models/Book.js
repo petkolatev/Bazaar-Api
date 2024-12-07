@@ -27,6 +27,10 @@ const bookSchema = new Schema({
     likes: [{
         type: Types.ObjectId,
         ref: 'User',
+    }],
+    buyers: [{
+        type: Types.ObjectId,
+        ref: 'User',
     }]
 
 

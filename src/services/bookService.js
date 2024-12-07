@@ -13,8 +13,7 @@ const bookService = {
     async update(id, update,) {
         return Book.findByIdAndUpdate(id, { ...update}, {new: true})
     },
-    async remove(req, res) {
-        const { bookId } = req.params
+    async remove(bookId) {
         return  Book.findOneAndDelete({'_id':bookId})
     },
     async search(searchString) {
