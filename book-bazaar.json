@@ -7,14 +7,16 @@
   "genre": "Детска литература",
   "year": 1911,
   "description": "Историята на едно момиче, което открива магическа градина и променя живота си и живота на други.",
-  "image": "https://www.book.store.bg/dcrimg/1062/tajnata-gradina.jpg",
+  "image": "https://i4.helikon.bg/products/2281/22/222281/222281_b.jpg?t=1733409896",
   "likes": [
     {
       "$oid": "674de486db8418b4e34a215e"
+    },
+    {
+      "$oid": "67517b1e3d8d3a468f11b64b"
     }
   ]
-},
-{
+},{
   "_id": {
     "$oid": "674758f9566963e20abdaf16"
   },
@@ -23,9 +25,8 @@
   "genre": "Класическа литература",
   "year": 1866,
   "description": "Разказ за моралните дилеми и последствията от едно престъпление.",
-  "image": "https://example.com/images/crime-and-punishment.jpg"
-},
-{
+  "image": "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/p/r/fe0c5f747aa7d7feab7a3dd45388a570/prestaplenie-i-nakazanie-30.jpg"
+},{
   "_id": {
     "$oid": "674758f9566963e20abdaf17"
   },
@@ -34,9 +35,8 @@
   "genre": "Романтична литература",
   "year": 1813,
   "description": "Класически роман за любовта и социалните очаквания в Англия през 19-ти век.",
-  "image": "https://example.com/images/pride-and-prejudice.jpg"
-},
-{
+  "image": "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/g/o/389554c0ca0fb0edad8e3ce5c6c012f2/gordost-i-predrazsadatsi-dvd-31.jpg"
+},{
   "_id": {
     "$oid": "674758f9566963e20abdaf18"
   },
@@ -45,9 +45,8 @@
   "genre": "Антиутопия",
   "year": 1949,
   "description": "Видение за тоталитарно бъдеще, където всеки аспект от живота е под контрола на правителството.",
-  "image": "https://example.com/images/1984.jpg"
-},
-{
+  "image": "https://i.ebayimg.com/images/g/u6wAAOSwwX1hN7xf/s-l500.jpg"
+},{
   "_id": {
     "$oid": "674758f9566963e20abdaf19"
   },
@@ -56,9 +55,8 @@
   "genre": "Хорър",
   "year": 1986,
   "description": "Група приятели се изправят срещу древно зло, което се проявява като клоун.",
-  "image": "https://example.com/images/it.jpg"
-},
-{
+  "image": "https://www.slovart.cz/buxus/images/image_19915_19_v1.jpeg"
+},{
   "_id": {
     "$oid": "674f30c071c44d9ba9fda0d4"
   },
@@ -67,21 +65,22 @@
   "genre": "Самоусавършенстване",
   "year": 2010,
   "description": "Фрагменти от Голямата тайна са откривани пред вековете в устните традиции, в литературата, в различните религиозни и философски учения. За първи път всички парчета на Тайната са събрани заедно в едно невероятно откровение, което ще промени живота на всички, до които достигне. От тази книга ще научите как да използвате Тайната, в който и да е аспект на вашия живот – пари, здраве, взаимоотношения, щастие, във всяко ваше взаимодействие с този свят. Ще започнете да разбирате скритата, неизползвана сила, която е в самите вас – както и че това откровение може да донесе радост във всички изяви на вашето съществуване",
-  "image": "https://bgdlb.ms01.st.msrv.stor.bg/lstimg/27028/tajnata.jpg",
+  "image": "https://cdn.ozone.bg/media/catalog/product/cache/1/image/a4e40ebdc3e371adff845072e1c73f37/t/a/4ba46ec723a991634a9bfa4a956cdc87/taynata---the-secret-31.jpg",
   "__v": 0
-},
-{
+},{
   "_id": {
-    "$oid": "67508e48fe710f37e1479412"
+    "$oid": "675184588419da4a96b779c6"
   },
-  "title": "1",
-  "author": "1",
-  "genre": "1",
-  "year": 1,
-  "description": "1",
-  "image": "1",
-  "owner": {
-    "$oid": "674de486db8418b4e34a215e"
-  },
+  "title": "The Silence of the Lambs",
+  "author": "Thomas Harris",
+  "genre": "Horror Movie",
+  "year": 1988,
+  "description": "The Silence of the Lambs is a 1988 psychological horror crime thriller novel by Thomas Harris. Published August 29, it is the sequel to Harris's 1981 novel Red Dragon, and both novels feature the cannibalistic serial killer and brilliant psychiatrist Dr. Hannibal Lecter. This time, however, he is pitted against FBI trainee Clarice Starling as she works to solve the case of the \"Buffalo Bill\" serial killer. It is the most well-known installment of Harris' Hannibal Lecter series, selling over 10 million copies. ",
+  "image": "https://upload.wikimedia.org/wikipedia/en/6/62/Silence3.png",
+  "likes": [
+    {
+      "$oid": "67517b1e3d8d3a468f11b64d"
+    }
+  ],
   "__v": 0
 }]
